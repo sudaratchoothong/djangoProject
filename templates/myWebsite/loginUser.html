@@ -1,0 +1,28 @@
+{% extends 'myWebsite/mainHTML.html' %}
+{% block content %}
+    <!-- <h1>Regsistration User</h1> -->
+    <h1>Login User</h1>
+    {% for msg in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Warning!!!:</strong> {{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+{% endfor %}
+
+    <form action="{% url 'loginData' %}" method="POST">
+        {% csrf_token %}
+          
+            <div class="form-group">
+                <label>User Name</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+
+            
+           <button type="submit"> submit</button>
+    </form>
+
+{% endblock %}

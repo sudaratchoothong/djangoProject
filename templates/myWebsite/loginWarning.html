@@ -1,0 +1,16 @@
+{% extends 'myWebsite/mainHTML.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'JavaScript/java_script1.js' %}"></script>
+<script>myJS1()</script>
+<link rel="stylesheet"  href="{% static 'CSS/myCSS.css' %}">
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Warning!!!:</strong> Can not access from  user
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
+</div>
+<h1>Super user can access this page!!!</h1>
+<img src="{% static 'Images\stop.jpg' %}">
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends 'myWebsite/mainHTML.html' %}
+{% block content %}
+  <h1>Content News</h1>
+  <table class="table">
+    <thead>
+        <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        {% for data in content %}
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.toppic_news}}</td>
+                <td>{{data.date_news}}</td>
+                <td>
+                    <form action="{% url 'contentEdit' %}" method="GET">
+                        
+                        <input type="hidden" value="{{data.id}}" name ="id"></input>
+
+                        <button type="submit">Edit</button>
+
+                       
+                    </form>
+                    <form action="{% url 'contentDelete' %}" method="GET">
+                        
+                        <input type="hidden" value="{{data.id}}" name ="id"></input>
+
+                        <button type="submit">Delete</button>
+
+                        
+                    </form>
+
+                   
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+  </table>
+
+{% endblock %}

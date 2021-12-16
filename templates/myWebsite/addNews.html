@@ -1,0 +1,22 @@
+{% extends 'myWebsite/mainHTML.html' %} {% block content %}
+<h1>Add New</h1>
+
+<form action="{% url 'recordNews' %}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+<div class="mb-3">
+    <label for="" class="form-label">Topic</label>
+    <input type="text" class="form-control" name=" toppic_news" required>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Details</label>
+    <textarea class="form-control" rows="10" name="detail_news" required></textarea>
+  </div>
+  <div>
+      <input type="file" class="form-control" name="photo_news" accept="image/*" required>
+  </div>
+ <br>
+    <div>
+       <button type="submit" class="btn btn-primary">Submit News</button>
+    </div>
+</form>
+{% endblock %}

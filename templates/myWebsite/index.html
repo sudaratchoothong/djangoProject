@@ -1,0 +1,23 @@
+{% extends 'myWebsite/mainHTML.html' %}
+
+้{% block content %}
+  <h1>New Page</h1>
+  <br>
+  {% for data in news%}
+    <form action="{% url 'contentShow' %}" method="GET">
+          <input type="hidden" value="{{data.id}}" name="id">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{data.toppic_news}}</h5>
+              <p class="card-text"><small class="text-muted">{{data.date_news}}</small></p>
+              <input type="submit" value="Read more..." class="btn btn-success">
+            </div>
+            <img src="{{data.photo_news.url}}" class="card-img-bottom" alt="img">
+          </div>
+          <br>
+    </form>
+  {% endfor %}
+
+  
+  
+{% endblock %}
